@@ -6,35 +6,35 @@
 <table>
   
   <tr>
-    <th>Length</th>
+    <th>Password Length</th>
     <th>Duration</th>
   </tr>
   <tr>
-    <td>6</td>
+    <td>6 characters</td>
     <td>13 mins</td>
   </tr>
   <tr>
-    <td>7</td>
+    <td>7 characters</td>
     <td>17 hrs</td>
   </tr>
   <tr>
-    <td>8</td>
+    <td>8 characters</td>
     <td>57 days</td>
   </tr>
   <tr>
-    <td>9</td>
+    <td>9 characters</td>
     <td>12 years</td>
   </tr>
   <tr>
-    <td>10</td>
+    <td>10 characters</td>
     <td>928 years</td>
   </tr>
   <tr>
-    <td>11</td>
+    <td>11 characters</td>
     <td>71K years</td>
   </tr>
   <tr>
-    <td>12</td>
+    <td>12 characters</td>
     <td>5M years</td>
   </tr>
   
