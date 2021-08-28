@@ -24,11 +24,11 @@ class PasswordGenerator:
                 continue
 
     def menu(self):
-        print("Menu:\n1. Generate a new password\n2. Show my passwords\n3. Exit!")
+        print("Menu:\nPress 1 to generate a new password\nPress 2 to show my passwords\nPress 0 to exit!")
         print("=" * 50)
         self.menu_choice = int(input("Enter your choice(as an integer): "))
         print("=" * 50)
-        if self.menu_choice == 3:
+        if self.menu_choice == 0:
             self.Run = False
         elif self.menu_choice == 1:
             self.Password = ""
@@ -42,13 +42,14 @@ class PasswordGenerator:
         print("=" * 50)
         self.password_generator()
         print("Domain: {}\nPassword: {}\n".format(self.Domain, self.Password))
-        print("Do you wanna save it:\nPress 1 to save\nPress 0 to generate new password\nPress 3 to exit")
+        print("Do you wanna save it:\nPress 1 to save\nPress 2 to generate new password\nPress 0 to exit")
         self.save_input = int(input("Enter your input: "))
         if self.save_input == 1:
             self.rows.append([self.Domain, self.Password])
-            print("Your values: {}".format(self.rows))
+            for x in self.rows:
+                print("Your value:\n{}: {}".format(x[0],x[1]))
             self.save_password()
-        elif self.save_input == 0:
+        elif self.save_input == 2:
             self.Password = ""
             self.new_password()
         else:
@@ -56,9 +57,11 @@ class PasswordGenerator:
         print("=" * 50)
 
     def save_password(self):
-        with open(self.filename, 'a') as self.csvfile:
+        with open(self.filename, 'a', newline='') as self.csvfile:
             self.csvwriter = csv.writer(self.csvfile)
             self.csvwriter.writerows(self.rows)
+            self.csvfile.close()
+        self.rows.clear()
         print("SAVED SUCCESSFULLY!")
 
     def show_passwords(self):
@@ -67,15 +70,24 @@ class PasswordGenerator:
         with open(self.filename, 'r') as self.csvfile:
             self.csvreader = csv.reader(self.csvfile)
             self.show_feilds = next(self.csvreader)
+            print(self.csvreader)
             for row in self.csvreader:
                 self.show_rows.append(row)
             print("Total no.of rows: %d"%(self.csvreader.line_num))
+            self.cv_count = self.csvreader.line_num
+            print(self.cv_count)
         print('Field names are: ' + ', '.join(field for field in self.show_feilds))
         print("The passwords are:\n")
         for x in self.show_rows:
-            print("{}: {}".format(*x))
-            print("-" * 20)
+            print(': '.join(map(str, x)))
+            print("")
+        print("Press 1 to run password generator\nPress 0 to exit")
+        self.get_back_menu = int(input("Enter your input: "))
         print("=" * 50)
+        if self.get_back_menu == 0:
+            self.Run = False
+        else:
+            self.security_key()
 
     def password_generator(self):
         while len(self.Password) < self.Length:
