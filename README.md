@@ -1,5 +1,5 @@
 ## Password Generator :
-- A simple python password generator will generate a strong password based on the user's inut length. The generated password can be saved in a CSV file with help of CSVwirter module. So that the user can have the track of their domain"s passcode.
+- A simple python password generator will generate a strong password based on the user's input length. The generated password can be saved in a CSV file with help of CSVwirter module. So that the user can have the track of their domain's passcode.
 
 ## How Long will it take to crack your password ?
 - As mentioned in <a href = "https://cloudnine.com/ediscoverydaily/electronic-discovery/how-long-will-it-take-to-crack-your-password-cybersecurity-trends/">cloudnine</a> blog.
